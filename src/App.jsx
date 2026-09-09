@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <GitHubCorner href="https://shrudebridgetroll.github.io/#" />
+      <GitHubCorner href="https://github.com/ShrudeBridgeTroll/ShrudeBridgeTroll.github.io" />
 
       <Header
         name="Jefferey Watts"
