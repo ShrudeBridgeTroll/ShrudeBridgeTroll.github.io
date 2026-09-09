@@ -1,9 +1,7 @@
-const Header = ({ name, tagline, children }) => {
+const Header = ({ children }) => {
   return (
     <header className="header">
-      <h1>{name}</h1>
-      <p>{tagline}</p>
-
+      <img src="/hero-banner.svg" alt="Jefferey Watts - Web & Software Developer" className="hero-banner" />
       {children}
     </header>
   )

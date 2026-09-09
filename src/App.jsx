@@ -2,17 +2,29 @@ import './App.css'
 import Header from './Components/Header'
 import Nav from './Components/Nav'
 import Footer from './Components/Footer'
+import GitHubCorner from './Components/GitHubCorner'
+import StarRating from './Components/StarRating'
 
 const App = () => {
+
   const hobbies = [
-    'Web Development',
-    'Software Development',
-    'Gaming',
-    'Learning New Technology'
+  'Web Development',
+  'Software Development',
+  'Gaming',
+  'Learning New Technology'
+]
+
+  const items = [
+    { name: 'Prison Break', type: 'Series', initialRating: 4 },
+    { name: 'Dragonlance: The Chronicles', type: 'Book', initialRating: 5 },
+    { name: 'Martial Arts Training', type: 'Hobby', initialRating: 3 },
+    { name: 'What Dreams May Come', type: 'Movie', initialRating: 4 }
   ]
 
   return (
     <div className="app">
+      <GitHubCorner href="https://shrudebridgetroll.github.io/#" />
+
       <Header
         name="Jefferey Watts"
         tagline="Web & Software Developer"
@@ -31,12 +43,32 @@ const App = () => {
           </p>
         </section>
 
-        <section className="hobbies">
+      <section className="hobbies">
           <h2>My Interests</h2>
 
           <ul>
             {hobbies.map((hobby, index) => (
               <li key={index}>{hobby}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="item-list">
+          <div className="list-heading">
+            <span>Favorites</span>
+            <span>{items.length} items</span>
+          </div>
+
+          <ul>
+            {items.map((item, index) => (
+              <li className="item-row" key={item.name}>
+                <span className="item-number">0{index + 1}</span>
+                <div className="item-info">
+                  <h2>{item.name}</h2>
+                  <p>{item.type}</p>
+                </div>
+                <StarRating initialRating={item.initialRating} />
+              </li>
             ))}
           </ul>
         </section>
