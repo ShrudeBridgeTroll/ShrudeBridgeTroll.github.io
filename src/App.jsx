@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './Components/Header'
 import Nav from './Components/Nav'
@@ -6,20 +7,46 @@ import GitHubCorner from './Components/GitHubCorner'
 import StarRating from './Components/StarRating'
 
 const App = () => {
-
   const hobbies = [
-  'Web Development',
-  'Software Development',
-  'Gaming',
-  'Learning New Technology'
-]
-
-  const items = [
-    { name: 'Prison Break', type: 'Series', initialRating: 4 },
-    { name: 'Dragonlance: The Chronicles', type: 'Book', initialRating: 5 },
-    { name: 'Martial Arts Training', type: 'Hobby', initialRating: 3 },
-    { name: 'What Dreams May Come', type: 'Movie', initialRating: 4 }
+    'Web Development',
+    'Software Development',
+    'Gaming',
+    'Learning New Technology'
   ]
+
+  const [items, setItems] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+
+        const response = await fetch('/data/favorites.json')
+
+        if (!response.ok) {
+          throw new Error(`HTTP error: ${response.status} ${response.statusText}`)
+        }
+
+        const data = await response.json()
+        setItems(data)
+      } catch (err) {
+        setError(err.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchFavorites()
+  }, [])
+
+  useEffect(() => {
+    if (!loading && !error) {
+      document.title = `${items.length} Favorite Items`
+    }
+  }, [items, loading, error])
 
   return (
     <div className="app">
@@ -43,7 +70,7 @@ const App = () => {
           </p>
         </section>
 
-      <section className="hobbies">
+        <section className="hobbies">
           <h2>My Interests</h2>
 
           <ul>
@@ -56,21 +83,37 @@ const App = () => {
         <section className="item-list">
           <div className="list-heading">
             <span>Favorites</span>
-            <span>{items.length} items</span>
+            <span>{loading ? 'Loading...' : `${items.length} items`}</span>
           </div>
 
-          <ul>
-            {items.map((item, index) => (
-              <li className="item-row" key={item.name}>
-                <span className="item-number">0{index + 1}</span>
-                <div className="item-info">
-                  <h2>{item.name}</h2>
-                  <p>{item.type}</p>
-                </div>
-                <StarRating initialRating={item.initialRating} />
-              </li>
-            ))}
-          </ul>
+          {loading && (
+            <div className="loading-message" role="status">
+              <span className="loading-spinner" aria-hidden="true"></span>
+              Loading favorites...
+            </div>
+          )}
+
+          {error && (
+            <div className="error-message" role="alert">
+              Error loading favorites: {error}
+            </div>
+          )}
+
+          {!loading && !error && (
+            <ul>
+              {items.map((item, index) => (
+                <li className="item-row" key={item.id}>
+                  <span className="item-number">{String(index + 1).padStart(2, '0')}</span>
+                  <div className="item-info">
+                    <h2>{item.title} <span className="item-year">({item.year})</span></h2>
+                    <p>{item.type} · {item.genre}</p>
+                    <p className="item-detail">{item.creator}</p>
+                  </div>
+                  <StarRating initialRating={item.rating} />
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
       </main>
 

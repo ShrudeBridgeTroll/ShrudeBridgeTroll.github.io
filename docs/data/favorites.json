@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "Prison Break",
+    "year": 2005,
+    "type": "Series",
+    "genre": "Crime Drama",
+    "creator": "Paul Scheuring",
+    "rating": 0
+  },
+  {
+    "id": 2,
+    "title": "Dragonlance: The Chronicles",
+    "year": 1984,
+    "type": "Book",
+    "genre": "Fantasy",
+    "creator": "Margaret Weis & Tracy Hickman",
+    "rating": 0
+  },
+  {
+    "id": 3,
+    "title": "Martial Arts Training",
+    "year": 2026,
+    "type": "Hobby",
+    "genre": "Fitness & Discipline",
+    "creator": "Taekwondo, Wrestling & Karate",
+    "rating": 0
+  },
+  {
+    "id": 4,
+    "title": "What Dreams May Come",
+    "year": 1998,
+    "type": "Movie",
+    "genre": "Fantasy Drama",
+    "creator": "Vincent Ward",
+    "rating": 0
+  },
+  {
+    "id": 5,
+    "title": "World Wrestling Entertainment",
+    "year": 2026,
+    "type": "Television Show",
+    "genre": "Sports Entertainment",
+    "creator": "WWE",
+    "rating": 0
+  }
+]
