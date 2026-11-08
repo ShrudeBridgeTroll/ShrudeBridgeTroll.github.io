@@ -5,8 +5,25 @@ import Nav from './Components/Nav'
 import Footer from './Components/Footer'
 import GitHubCorner from './Components/GitHubCorner'
 import StarRating from './Components/StarRating'
+import ThemeToggle from './Components/ThemeToggle'
+import Fireflies from './Components/Fireflies'
 
 const App = () => {
+  // The parent owns theme state so every page component can use it.
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('homepage-theme')
+    if (saved === 'light' || saved === 'dark') return saved
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  })
+
+  useEffect(() => {
+    localStorage.setItem('homepage-theme', theme)
+    document.documentElement.dataset.theme = theme
+    document.documentElement.style.colorScheme = theme
+  }, [theme])
+
+  const toggleTheme = () => setTheme(current => current === 'light' ? 'dark' : 'light')
+
   const hobbies = [
     'Web Development',
     'Software Development',
@@ -49,17 +66,20 @@ const App = () => {
   }, [items, loading, error])
 
   return (
-    <div className="app">
+    <div className={`app theme-${theme}`}>
+      <Fireflies theme={theme} />
       <GitHubCorner href="https://github.com/ShrudeBridgeTroll/ShrudeBridgeTroll.github.io" />
 
       <Header
+        theme={theme}
         name="Jefferey Watts"
         tagline="Web & Software Developer"
       >
-        <Nav />
+        <Nav theme={theme} />
+        <ThemeToggle theme={theme} onToggle={toggleTheme} />
       </Header>
 
-      <main className="main-content">
+      <main className="main-content" data-theme={theme}>
         <section className="about">
           <h2>About Me</h2>
 
@@ -117,7 +137,7 @@ const App = () => {
         </section>
       </main>
 
-      <Footer />
+      <Footer theme={theme} />
     </div>
   )
 }

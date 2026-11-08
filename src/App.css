@@ -1,3 +1,33 @@
+/* THEME COLORS — App is the common ancestor of all components. */
+:root,
+.theme-dark {
+  --page-bg: #0c101b;
+  --chrome-bg: #151b2a;
+  --panel-bg: #1b2434;
+  --text: #f0eee5;
+  --muted: #d0d7e4;
+  --gold: #efd06a;
+  --gold-strong: #ffe29a;
+  --subtext: #d2bb8d;
+  --star-empty: #8e98a9;
+  --hover-text: #ffffff;
+  --loading-bg: #263148;
+  --rule: rgba(239, 208, 106, 0.35);
+}
+.theme-light {
+  --page-bg: #f5f4e9;
+  --chrome-bg: #fff8e4;
+  --panel-bg: #fffdf4;
+  --text: #242a35;
+  --muted: #444f5f;
+  --gold: #775314;
+  --gold-strong: #614412;
+  --subtext: #655337;
+  --star-empty: #77756e;
+  --hover-text: #3a2706;
+  --loading-bg: #fff1c9;
+  --rule: rgba(119, 83, 20, 0.25);
+}
 * {
   box-sizing: border-box;
 }
@@ -5,8 +35,9 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #111111;
-  color: #e8e8e8;
+  background: var(--page-bg);
+  color: var(--text);
+  transition: background-color .45s ease, color .45s ease;
 }
 
 .app {
@@ -26,22 +57,22 @@ body {
 }
 
 .header {
-  background-color: #181818;
+  background-color: var(--chrome-bg);
   text-align: center;
   padding: 3rem 1rem 2rem;
-  border-bottom: 3px solid #d4af37;
+  border-bottom: 3px solid var(--gold);
 }
 
 .header h1 {
   margin: 0;
   font-size: 3rem;
-  color: #d4af37;
+  color: var(--gold);
   letter-spacing: 2px;
 }
 
 .header p {
   margin: 0.75rem 0 1.5rem;
-  color: #cccccc;
+  color: var(--muted);
   font-size: 1.2rem;
 }
 
@@ -54,7 +85,7 @@ body {
 }
 
 .nav a {
-  color: #d4af37;
+  color: var(--gold);
   text-decoration: none;
   font-weight: bold;
   padding: 0.5rem 0;
@@ -62,8 +93,8 @@ body {
 }
 
 .nav a:hover {
-  color: #ffffff;
-  border-bottom: 2px solid #d4af37;
+  color: var(--hover-text);
+  border-bottom: 2px solid var(--gold);
 }
 
 /* MAIN CONTENT */
@@ -76,22 +107,22 @@ body {
 }
 
 section {
-  background-color: #1c1c1c;
+  background-color: var(--panel-bg);
   padding: 2rem;
   margin-bottom: 2rem;
-  border-left: 4px solid #d4af37;
+  border-left: 4px solid var(--gold);
   border-radius: 8px;
 }
 
 section h2 {
-  color: #d4af37;
+  color: var(--gold);
   margin-top: 0;
   font-size: 1.8rem;
 }
 
 section p {
   line-height: 1.7;
-  color: #dddddd;
+  color: var(--text);
 }
 
 ul {
@@ -100,11 +131,11 @@ ul {
 
 li {
   margin-bottom: 0.75rem;
-  color: #dddddd;
+  color: var(--text);
 }
 
 li::marker {
-  color: #d4af37;
+  color: var(--gold);
 }
 
 /* ITEM LIST + RATINGS */
@@ -117,11 +148,11 @@ li::marker {
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
-  color: #d4af37;
+  color: var(--gold);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+  border-bottom: 1px solid var(--rule);
 }
 
 .item-list ul {
@@ -137,7 +168,7 @@ li::marker {
   gap: 1rem;
   min-height: 6rem;
   margin-bottom: 0;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid var(--rule);
 }
 
 .item-row:last-child {
@@ -145,7 +176,7 @@ li::marker {
 }
 
 .item-number {
-  color: #b08d2b;
+  color: var(--gold);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
 }
@@ -153,12 +184,12 @@ li::marker {
 .item-info h2 {
   margin: 0 0 0.35rem;
   font-size: 1.25rem;
-  color: #f0d27a;
+  color: var(--gold-strong);
 }
 
 .item-info p {
   margin: 0;
-  color: #a9915c;
+  color: var(--subtext);
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -181,7 +212,7 @@ li::marker {
   height: 1.9rem;
   padding: 0;
   border: 0;
-  color: #6b6255;
+  color: var(--star-empty);
   background: transparent;
   cursor: pointer;
   font-size: 1.4rem;
@@ -192,11 +223,11 @@ li::marker {
 .star-button:hover,
 .star-button:focus-within,
 .star-button.is-filled {
-  color: #d4af37;
+  color: var(--gold);
 }
 
 .star-button.is-half-filled {
-  color: #cccccc;
+  color: var(--muted);
 }
 
 .star-button.is-filled svg {
@@ -212,7 +243,7 @@ li::marker {
 }
 
 .star-button:focus-visible {
-  outline: 2px solid #d4af37;
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
   border-radius: 3px;
 }
@@ -238,7 +269,7 @@ li::marker {
 }
 
 .star-half-button:focus-visible {
-  outline: 2px solid #d4af37;
+  outline: 2px solid var(--gold);
   outline-offset: -2px;
   border-radius: 3px;
 }
@@ -246,15 +277,15 @@ li::marker {
 .rating-value {
   width: 2rem;
   margin-left: 0.5rem;
-  color: #d4af37;
+  color: var(--gold);
   font-size: 0.75rem;
   text-align: right;
 }
 
 /* GitHub Corners ribbon */
 .github-corner {
-  fill: #d4af37;
-  color: #111111;
+  fill: var(--gold);
+  color: var(--page-bg);
   position: fixed;
   top: 0;
   right: 0;
@@ -289,20 +320,20 @@ li::marker {
 /* FOOTER */
 
 .footer {
-  background-color: #181818;
-  color: #aaaaaa;
+  background-color: var(--chrome-bg);
+  color: var(--muted);
   text-align: center;
   padding: 1.5rem;
-  border-top: 1px solid #d4af37;
+  border-top: 1px solid var(--gold);
 }
 
 .footer a {
-  color: #d4af37;
+  color: var(--gold);
   text-decoration: none;
 }
 
 .footer a:hover {
-  color: white;
+  color: var(--hover-text);
 }
 
 /* MOBILE */
@@ -366,15 +397,15 @@ li::marker {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #f0d27a;
-  background-color: #252525;
+  color: var(--gold-strong);
+  background-color: var(--loading-bg);
 }
 
 .loading-spinner {
   width: 1rem;
   height: 1rem;
-  border: 2px solid #6b6255;
-  border-top-color: #d4af37;
+  border: 2px solid var(--star-empty);
+  border-top-color: var(--gold);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -392,15 +423,145 @@ li::marker {
 }
 
 .item-year {
-  color: #a9915c;
+  color: var(--subtext);
   font-size: 0.9rem;
   font-weight: normal;
 }
 
 .item-info .item-detail {
   margin-top: 0.3rem;
-  color: #bdbdbd;
+  color: var(--muted);
   font-size: 0.8rem;
   letter-spacing: normal;
   text-transform: none;
+}
+
+/* Keep all theme-dependent content readable and coordinated. */
+.app { position: relative; isolation: isolate; background: var(--page-bg); color: var(--text); transition: background-color .5s, color .5s; }
+.header, .footer, section, .nav a, .item-info h2, .item-info p, .item-year, .rating-value {
+  transition: background-color .5s, color .5s, border-color .5s;
+}
+.header, .main-content, .footer { position: relative; z-index: 1; }
+.header { padding-bottom: 1.5rem; }
+.header .hero-banner { background: transparent; }
+.theme-light .github-corner { color: #fff8e4; }
+/* Header toggle: large firefly sits below the existing navigation. */
+.firefly-toggle {
+  display: inline-flex; flex-direction: column; justify-content: center; align-items: center;
+  margin: 1.2rem auto 0; min-width: 172px; min-height: 120px;
+  border: 2px solid var(--gold); border-radius: 20px;
+  background: var(--panel-bg); color: var(--text);
+  font: 700 1rem Arial, Helvetica, sans-serif; cursor: pointer;
+  transition: transform .25s, box-shadow .3s, background-color .5s;
+  box-shadow: 0 5px 20px rgba(0,0,0,.12);
+}
+.firefly-toggle:hover { transform: translateY(-4px) scale(1.035); box-shadow: 0 0 28px rgba(239,208,106,.45); }
+.firefly-toggle:focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
+.toggle-label { display: block; margin: 4px 0 10px; }
+.toggle-art { width: 76px; height: 68px; position: relative; display: block; margin-top: 9px; }
+.bug-head { position: absolute; width: 27px; height: 25px; left: 24px; top: 7px; background: #54442d; border-radius: 50%; z-index: 4; }
+.bug-body { position: absolute; width: 30px; height: 36px; left: 23px; top: 25px; background: #4b4232; border-radius: 45%; z-index: 3; }
+.bug-light { position: absolute; width: 23px; height: 25px; left: 26px; top: 38px; background: #d5ad35; border-radius: 45% 45% 65% 65%; z-index: 4; transition: background .4s, box-shadow .4s; }
+.theme-dark .bug-light { background: #fff4a8; box-shadow: 0 0 15px 6px #f9da52, 0 0 32px 12px rgba(247,201,42,.45); animation: bug-pulse 2.3s ease-in-out infinite; }
+.bug-wing { position: absolute; top: 18px; width: 27px; height: 38px; border-radius: 80% 15% 75% 20%; background: rgba(166,192,177,.72); z-index: 2; }
+.bug-wing-left { left: 7px; transform: rotate(-34deg); }
+.bug-wing-right { right: 7px; transform: scaleX(-1) rotate(-34deg); }
+.bug-antenna { position: absolute; top: 0; width: 2px; height: 18px; background: #77633b; z-index: 5; }
+.antenna-left { left: 30px; transform: rotate(-25deg); }
+.antenna-right { right: 30px; transform: rotate(25deg); }
+@keyframes bug-pulse { 50% { filter: brightness(1.25); } }
+/* Twelve fireflies, behind text and buttons so they cannot block clicks. */
+.fireflies { pointer-events: none; position: fixed; inset: 0; z-index: 0; overflow: hidden; opacity: 0; transition: opacity .5s; }
+.fireflies-dark { opacity: 1; }
+.firefly { position: absolute; left: var(--x); top: var(--y); width: var(--size); height: var(--size); border-radius: 50%; background: #fff3ab; box-shadow: 0 0 14px 5px rgba(255,221,81,.8), 0 0 28px 9px rgba(241,194,45,.38); animation: float-firefly var(--duration) ease-in-out var(--delay) infinite alternate; }
+@keyframes float-firefly { from { transform: translate(-20px, 13px); opacity: .35; } to { transform: translate(26px,-32px); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .firefly, .theme-dark .bug-light { animation: none; } .app, .header, section, .footer, .firefly-toggle { transition: none; } }
+
+/* FOREST DAYLIGHT — light-only appearance. Dark mode above stays unchanged. */
+.theme-light {
+  --page-bg: #d7ead5;
+  --chrome-bg: rgba(234, 248, 228, 0.91);
+  --panel-bg: rgba(248, 254, 245, 0.93);
+  --text: #193b2c;
+  --muted: #355b48;
+  --gold: #286445;
+  --gold-strong: #205239;
+  --subtext: #476952;
+  --star-empty: #71877a;
+  --hover-text: #153c2a;
+  --loading-bg: #e1f3db;
+  --rule: rgba(44, 102, 65, 0.22);
+  background-color: #c8dfc6;
+  background-image:
+    linear-gradient(180deg, rgba(235, 250, 228, 0.15), rgba(223, 243, 211, 0.28) 55%, rgba(191, 224, 187, 0.16)),
+    url('/forest-day.svg');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+}
+.theme-light .header {
+  background: linear-gradient(180deg, rgba(235, 249, 226, .93), rgba(217, 239, 211, .86));
+  border-bottom-color: #4b9467;
+  box-shadow: 0 8px 30px rgba(24, 75, 43, .13);
+}
+.theme-light .header h1,
+.theme-light .nav a,
+.theme-light section h2,
+.theme-light .item-info h2 { color: #20593a; }
+.theme-light .nav a:hover { color: #103e28; border-bottom-color: #41865b; }
+.theme-light section {
+  background: var(--panel-bg);
+  border-left-color: #4a9a64;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(23, 67, 37, .13);
+  backdrop-filter: blur(7px);
+}
+.theme-light .firefly-toggle {
+  background: linear-gradient(165deg, #edf9dd, #cdecc4);
+  border-color: #4c9262;
+  box-shadow: 0 8px 22px rgba(35, 94, 52, .16);
+}
+.theme-light .firefly-toggle:hover {
+  box-shadow: 0 0 0 4px rgba(240, 204, 89, .23), 0 12px 24px rgba(32, 96, 54, .22);
+}
+.theme-light .bug-light { background: #e5bc50; }
+.theme-light .footer {
+  background: rgba(221, 241, 211, .93);
+  border-top-color: #4b9467;
+}
+.theme-light .github-corner { color: #eff9e9; }
+.theme-light .error-message { color: #742f28; background: #fff0e8; border-color: #c98c7d; }
+@media (max-width: 700px) {
+  .theme-light { background-attachment: scroll; background-position: center top; }
+  .theme-light section { background: rgba(248,254,245,.96); }
+}
+
+/* Matched forest banners. Only banner artwork changes with the chosen theme.
+   The original firefly toggle and ambient animation remain untouched. */
+.header .hero-banner {
+  width: min(100%, 1100px);
+  max-width: 1100px;
+  height: auto;
+  aspect-ratio: 6 / 1;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 12px 34px rgba(0,0,0,.21);
+}
+@media (max-width: 620px) {
+  .header { padding-inline: .6rem; }
+  .header .hero-banner { border-radius: 6px; }
+}
+
+
+/* Wildlife in the TWO LARGE BODY TREES (not the header banner).
+   Both SVG backgrounds share identical tree shapes and animal coordinates.
+   The firefly toggle and floating fireflies are unchanged. */
+.theme-dark {
+  background-image: linear-gradient(180deg, rgba(6, 13, 25, .18), rgba(6, 13, 25, .33)), url('/forest-night.svg');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+}
+@media (max-width: 700px) {
+  .theme-dark { background-attachment: scroll; }
 }

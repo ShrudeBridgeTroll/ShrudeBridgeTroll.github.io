@@ -1,6 +1,6 @@
-const Nav = () => {
+const Nav = ({ theme }) => {
   return (
-    <nav className="nav">
+    <nav className={`nav theme-${theme}`}>
       <a href="#">Home</a>
       <a href="#">Projects..</a>
       <a href="#">Contact</a>

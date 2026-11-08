@@ -1,6 +1,6 @@
-const Footer = () => {
+const Footer = ({ theme }) => {
   return (
-    <footer className="footer">
+    <footer className={`footer theme-${theme}`}>
       <p>&copy; 2026 Jefferey Watts</p>
 
       <p>
