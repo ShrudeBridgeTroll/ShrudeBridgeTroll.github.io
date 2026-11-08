@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#e9f8e7"/><stop offset=".44" stop-color="#b9ddba"/><stop offset="1" stop-color="#628f70"/></linearGradient>
+    <radialGradient id="glow" cx=".71" cy=".17" r=".62"><stop stop-color="#fff9c3" stop-opacity=".95"/><stop offset=".25" stop-color="#fff1bc" stop-opacity=".48"/><stop offset="1" stop-color="#fff6dc" stop-opacity="0"/></radialGradient>
+    <linearGradient id="rays" x1=".65" y1="0" x2=".2" y2="1"><stop stop-color="#fff8cc" stop-opacity=".50"/><stop offset="1" stop-color="#fff8cc" stop-opacity="0"/></linearGradient>
+    <linearGradient id="ground" x2="0" y2="1"><stop stop-color="#508c5d"/><stop offset="1" stop-color="#254e39"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="22"/></filter>
+    <g id="branchy"><path d="M0 850 Q -7 460 28 110" stroke="#2e6144" stroke-width="30" fill="none"/><path d="M12 540 Q -110 310 -235 220 M18 400 Q145 270 255 190" stroke="#3a6b4c" stroke-width="14" fill="none"/><ellipse cx="-92" cy="176" rx="210" ry="132" fill="#477b54"/><ellipse cx="122" cy="110" rx="255" ry="132" fill="#56865c"/><ellipse cx="-14" cy="73" rx="194" ry="112" fill="#6c9b68"/><ellipse cx="-195" cy="270" rx="145" ry="96" fill="#497e57"/></g>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <circle cx="1145" cy="185" r="105" fill="#fff8c9" opacity=".65" filter="url(#soft)"/>
+  <g fill="url(#rays)" opacity=".75"><path d="M1145 130 290 1000 630 1000Z"/><path d="M1145 130 730 1000 920 1000Z"/><path d="M1145 130 1040 1000 1210 1000Z"/><path d="M1145 130 1380 1000 1520 1000Z"/></g>
+  <g opacity=".25" fill="#548f6b"><ellipse cx="340" cy="665" rx="480" ry="165"/><ellipse cx="1220" cy="680" rx="660" ry="155"/></g>
+  <path d="M0 755 Q 350 695 720 754 T1600 738 V1000 H0Z" fill="url(#ground)" opacity=".75"/>
+  <g opacity=".45"><use href="#branchy" transform="translate(50 -110) scale(.75)"/><use href="#branchy" transform="translate(1610 -130) scale(-.76 .8)"/></g>
+  <g><use href="#branchy" transform="translate(65 -70) scale(1.06)"/><use href="#branchy" transform="translate(1560 -90) scale(-1.13 1.08)"/></g>
+  <g fill="#b2d491" opacity=".6"><circle cx="190" cy="824" r="6"/><circle cx="210" cy="800" r="4"/><circle cx="1480" cy="880" r="8"/><circle cx="1372" cy="844" r="5"/><circle cx="730" cy="922" r="5"/><circle cx="884" cy="864" r="6"/></g>
+
+  <!-- Two Northern cardinals perched on the upper branches of the BODY trees. -->
+  <defs>
+    <linearGradient id="cardinalRed" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff6141"/><stop offset=".55" stop-color="#cf1e1c"/><stop offset="1" stop-color="#8a1119"/></linearGradient>
+  </defs>
+  <g id="cardinals" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(210 128) scale(1.08)">
+      <path d="M-11 15 Q-38 41-60 56 Q-31 51 -6 31Z" fill="#a8191a" stroke="#73161c" stroke-width="2"/>
+      <ellipse cx="2" cy="12" rx="24" ry="31" fill="url(#cardinalRed)" transform="rotate(-16 2 12)"/>
+      <path d="M-8 -13 L-2 -35 12 -17 Q28 -13 24 1 Q20 16 2 13 Q-18 8 -8 -13Z" fill="#e93427"/>
+      <path d="M7 -12 Q22 -18 28 -1 Q21 11 10 6 Q2 -2 7 -12Z" fill="#29292a"/>
+      <path d="M23 -1 L38 4 23 10Z" fill="#ef9b3b" stroke="#87541c" stroke-width="1.5"/>
+      <circle cx="19" cy="-4" r="2.7" fill="#fff2d0"/><circle cx="19.6" cy="-4.2" r="1.3" fill="#141414"/>
+      <path d="M-11 3 Q-25 19-5 36 Q-3 22 8 8" fill="#b51a20" opacity=".72"/>
+      <path d="M-5 40 L-7 53 M6 40 L7 54 M-13 53 l9 -1 M3 55 l10 -2" stroke="#5b3922" stroke-width="2.4" fill="none"/>
+    </g>
+    <g transform="translate(1390 128) scale(-1.08 1.08)">
+      <path d="M-11 15 Q-38 41-60 56 Q-31 51 -6 31Z" fill="#a8191a" stroke="#73161c" stroke-width="2"/>
+      <ellipse cx="2" cy="12" rx="24" ry="31" fill="url(#cardinalRed)" transform="rotate(-16 2 12)"/>
+      <path d="M-8 -13 L-2 -35 12 -17 Q28 -13 24 1 Q20 16 2 13 Q-18 8 -8 -13Z" fill="#e93427"/>
+      <path d="M7 -12 Q22 -18 28 -1 Q21 11 10 6 Q2 -2 7 -12Z" fill="#29292a"/>
+      <path d="M23 -1 L38 4 23 10Z" fill="#ef9b3b" stroke="#87541c" stroke-width="1.5"/>
+      <circle cx="19" cy="-4" r="2.7" fill="#fff2d0"/><circle cx="19.6" cy="-4.2" r="1.3" fill="#141414"/>
+      <path d="M-11 3 Q-25 19-5 36 Q-3 22 8 8" fill="#b51a20" opacity=".72"/>
+      <path d="M-5 40 L-7 53 M6 40 L7 54 M-13 53 l9 -1 M3 55 l10 -2" stroke="#5b3922" stroke-width="2.4" fill="none"/>
+    </g>
+  </g>
+</svg>

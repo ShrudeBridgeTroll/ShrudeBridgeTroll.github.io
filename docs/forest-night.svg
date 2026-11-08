@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#132437"/><stop offset=".44" stop-color="#112e42"/><stop offset="1" stop-color="#061625"/></linearGradient>
+    <radialGradient id="glow" cx=".71" cy=".17" r=".62"><stop stop-color="#8fc6e0" stop-opacity=".95"/><stop offset=".25" stop-color="#477591" stop-opacity=".48"/><stop offset="1" stop-color="#071e35" stop-opacity="0"/></radialGradient>
+    <linearGradient id="rays" x1=".65" y1="0" x2=".2" y2="1"><stop stop-color="#a6cbe7" stop-opacity=".50"/><stop offset="1" stop-color="#a6cbe7" stop-opacity="0"/></linearGradient>
+    <linearGradient id="ground" x2="0" y2="1"><stop stop-color="#143c40"/><stop offset="1" stop-color="#091e29"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="22"/></filter>
+    <g id="branchy"><path d="M0 850 Q -7 460 28 110" stroke="#0d2630" stroke-width="30" fill="none"/><path d="M12 540 Q -110 310 -235 220 M18 400 Q145 270 255 190" stroke="#1a3940" stroke-width="14" fill="none"/><ellipse cx="-92" cy="176" rx="210" ry="132" fill="#193b3c"/><ellipse cx="122" cy="110" rx="255" ry="132" fill="#23484b"/><ellipse cx="-14" cy="73" rx="194" ry="112" fill="#254b4a"/><ellipse cx="-195" cy="270" rx="145" ry="96" fill="#16393d"/></g>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <circle cx="1145" cy="185" r="86" fill="#e7f4ff" opacity=".55" filter="url(#soft)"/>
+  <g fill="url(#rays)" opacity=".06"><path d="M1145 130 290 1000 630 1000Z"/><path d="M1145 130 730 1000 920 1000Z"/><path d="M1145 130 1040 1000 1210 1000Z"/><path d="M1145 130 1380 1000 1520 1000Z"/></g>
+  <g opacity=".25" fill="#2b5960"><ellipse cx="340" cy="665" rx="480" ry="165"/><ellipse cx="1220" cy="680" rx="660" ry="155"/></g>
+  <path d="M0 755 Q 350 695 720 754 T1600 738 V1000 H0Z" fill="url(#ground)" opacity=".75"/>
+  <g opacity=".45"><use href="#branchy" transform="translate(50 -110) scale(.75)"/><use href="#branchy" transform="translate(1610 -130) scale(-.76 .8)"/></g>
+  <g><use href="#branchy" transform="translate(65 -70) scale(1.06)"/><use href="#branchy" transform="translate(1560 -90) scale(-1.13 1.08)"/></g>
+  <g fill="#a4cc9b" opacity=".6"><circle cx="190" cy="824" r="6"/><circle cx="210" cy="800" r="4"/><circle cx="1480" cy="880" r="8"/><circle cx="1372" cy="844" r="5"/><circle cx="730" cy="922" r="5"/><circle cx="884" cy="864" r="6"/></g>
+
+
+  <!-- The owls occupy the SAME positions as the day cardinals (210,128 and 1390,128). -->
+  <defs>
+    <radialGradient id="owlGlow"><stop stop-color="#ffeda3"/><stop offset=".55" stop-color="#efb744"/><stop offset="1" stop-color="#d98923"/></radialGradient>
+    <filter id="eyeHalo" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="8"/></filter>
+  </defs>
+  <g id="owls" aria-hidden="true">
+    <g transform="translate(210 128)">
+      <path d="M-42 12 L-40 -26 -25 -16 Q0 -32 24 -16 L39 -28 40 12 Q34 47 0 48 Q-34 47 -42 12Z" fill="#081923" opacity=".85"/>
+      <g fill="#e5aa38" opacity=".6" filter="url(#eyeHalo)"><ellipse cx="-16" cy="7" rx="14" ry="13"/><ellipse cx="16" cy="7" rx="14" ry="13"/></g>
+      <path d="M-31 -1 Q-17 -11 -3 1 Q-13 21 -25 17Z M3 1 Q17 -11 31 -1 L25 17 Q13 21 3 1Z" fill="url(#owlGlow)"/>
+      <ellipse cx="-16" cy="7" rx="4" ry="10" fill="#09151d"/><ellipse cx="16" cy="7" rx="4" ry="10" fill="#09151d"/>
+      <path d="M-3 18 L0 26 3 18Z" fill="#9a6833"/>
+    </g>
+    <g transform="translate(1390 128)">
+      <path d="M-42 12 L-40 -26 -25 -16 Q0 -32 24 -16 L39 -28 40 12 Q34 47 0 48 Q-34 47 -42 12Z" fill="#081923" opacity=".85"/>
+      <g fill="#e5aa38" opacity=".6" filter="url(#eyeHalo)"><ellipse cx="-16" cy="7" rx="14" ry="13"/><ellipse cx="16" cy="7" rx="14" ry="13"/></g>
+      <path d="M-31 -1 Q-17 -11 -3 1 Q-13 21 -25 17Z M3 1 Q17 -11 31 -1 L25 17 Q13 21 3 1Z" fill="url(#owlGlow)"/>
+      <ellipse cx="-16" cy="7" rx="4" ry="10" fill="#09151d"/><ellipse cx="16" cy="7" rx="4" ry="10" fill="#09151d"/>
+      <path d="M-3 18 L0 26 3 18Z" fill="#9a6833"/>
+    </g>
+  </g>
+</svg>
