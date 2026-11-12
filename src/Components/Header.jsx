@@ -1,4 +1,8 @@
-const Header = ({ children, theme }) => {
+import { useContext } from 'react'
+import { ThemeContext } from '../Contexts/ThemeContext.jsx'
+
+const Header = ({ children }) => {
+  const { theme } = useContext(ThemeContext)
   const isDark = theme === 'dark'
 
   return (

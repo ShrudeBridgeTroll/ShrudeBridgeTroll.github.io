@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../Contexts/ThemeContext.jsx';
+
 // Positions, sizes, and delays are fixed to prevent random jumps on re-render.
 const fireflies = [
   [8, 35, 3.1, 0.2, 7], [18, 66, 4.1, -1.2, 9], [27, 26, 3.7, -2.1, 6],
@@ -6,7 +9,8 @@ const fireflies = [
   [92, 72, 5.3, -3.8, 7], [12, 86, 4.2, -1.4, 8], [88, 86, 3.9, -2.4, 10],
 ];
 
-export default function Fireflies({ theme }) {
+export default function Fireflies() {
+  const { theme } = useContext(ThemeContext);
   return (
     <div className={`fireflies fireflies-${theme}`} aria-hidden="true">
       {fireflies.map(([x, y, duration, delay, size], index) => (

@@ -1,12 +1,15 @@
-import { useEffect, useRef } from 'react';
 
-export default function ThemeToggle({ theme, onToggle }) {
-  // useRef stores a reference to this real DOM button; it does not cause re-renders.
+import { useContext, useEffect, useRef } from 'react';
+import { ThemeContext } from '../Contexts/ThemeContext.jsx'
+
+export default function ThemeToggle() {
+  // Assignment 6: Get theme state directly from Context.
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  // Preserve the original button focus behavior.
   const buttonRef = useRef(null);
   const hasToggledRef = useRef(false);
 
-  // Focus the button AFTER React has committed the updated theme.
-  // The guard avoids stealing focus on the initial page load.
   useEffect(() => {
     if (hasToggledRef.current) {
       buttonRef.current?.focus();
@@ -16,7 +19,10 @@ export default function ThemeToggle({ theme, onToggle }) {
 
   function handleToggle() {
     hasToggledRef.current = true;
-    onToggle();
+
+    setTheme(current =>
+      current === 'light' ? 'dark' : 'light'
+    );
   }
 
   const nextMode = theme === 'light' ? 'dark' : 'light';
@@ -40,7 +46,10 @@ export default function ThemeToggle({ theme, onToggle }) {
         <span className="bug-antenna antenna-left" />
         <span className="bug-antenna antenna-right" />
       </span>
-      <span className="toggle-label">{theme === 'light' ? 'Go dark' : 'Go light'}</span>
+
+      <span className="toggle-label">
+        {theme === 'light' ? 'Go dark' : 'Go light'}
+      </span>
     </button>
   );
 }
